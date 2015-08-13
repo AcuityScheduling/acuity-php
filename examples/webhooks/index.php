@@ -1,41 +1,36 @@
 <?php
 
-// Deps
-include __DIR__.'/../../vendor/autoload.php';
-
 // Config:
-$secret = '123abc';
+$secret = 'afa7ab1cee139971061804fa02d13aca';
+$path = $_SERVER['PATH_INFO'] ? $_SERVER['PATH_INFO'] : '/';
+$method = $_SERVER['REQUEST_METHOD'];
 
-// App:
-$app = new \Slim\App();
-$verifySignatureMiddleware = function ($request, $response, $next) use ($secret) {
+// Verify signature:
+function verifySignature ($secret) {
 
   // Get hash of message using shared secret:
   $body = file_get_contents('php://input');
   $hash = base64_encode(hash_hmac('sha256', $body, $secret, true));
 
-  // Compare the two:
-  if ($hash !== $request->getHeaderLine('X-Acuity-Signature')) {
+  // Compare to the signature:
+  $signature = $_SERVER['HTTP_X_ACUITY_SIGNATURE'];
+  if ($hash !== $signature) {
     throw new Exception('This message was forged!');
   }
+}
 
-  return $next($request, $response);
-};
-
-$app->get('/', function () {
+// App:
+if ($method === 'GET' && $path === '/') {
   include 'index.html';
-});
+} else
+if ($method === 'POST' && $path === '/webhook') {
+  try {
+    verifySignature($secret);
+    error_log("The message is authentic:\n" . json_encode($_POST, JSON_PRETTY_PRINT));
+  } catch (Exception $e) {
+    error_log($e->getMessage());
+  }
+} else {
+  http_response_code(404);
+}
 
-$app->post('/webhook', function ($request, $response) {
-  // The message is authentic:
-  error_log("The message is authentic:\n" . json_encode($request->getParsedBody(), JSON_PRETTY_PRINT));
-})->add($verifySignatureMiddleware);
-
-// Server:
-$app->getContainer()['errorHandler'] = function ($c) {
-  return function ($request, $response, $exception) use ($c) {
-    trigger_error($exception->getMessage());
-    return $response;
-  };
-};
-$app->run();
