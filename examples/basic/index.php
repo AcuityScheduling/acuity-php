@@ -10,7 +10,11 @@ list($method, $path) = getRouteInfo();
 
 
 // Instantiate API class:
-$acuity = new AcuityAPI($config);
+$acuity = new AcuityAPI([
+	'userId' => $config['userId'],
+	'apiKey' => $config['apiKey'],
+	'base' => $config['base'] // Optional
+]);
 
 
 // Example app:

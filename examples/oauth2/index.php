@@ -11,9 +11,13 @@ list($method, $path) = getRouteInfo();
 
 // Instantiate OAuth API class.  Once we have connected to Acuity,
 // we'll store the accessToken in the session for future page visits.
-$acuity = new AcuityOAuth(array_merge($config, [
-	'accessToken' => $_SESSION['accessToken']
-]));
+$acuity = new AcuityOAuth([
+	'accessToken' => $_SESSION['accessToken'],
+	'clientId' => $config['clientId'],
+	'clientSecret' => $config['clientSecret'],
+	'redirectUri' => $config['redirectUri'],
+	'base' => $config['base'] // Optional
+]);
 
 
 // Example app:
