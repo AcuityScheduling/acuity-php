@@ -58,6 +58,10 @@ class AcuitySchedulingOAuth extends AcuityScheduling {
 		return $response;
 	}
 
+	public function isConnected() {
+		return $this->accessToken ? true : false;
+	}
+
 	public function request($path, $options = []) {
 		$url = $this->base.'/api/v1/'.$path;
 		return $this->_request($url, array_merge($options, [
