@@ -95,4 +95,20 @@ class AcuityAPI {
 
 		return $response;
 	}
+
+	/**
+	 * Verify a message signature using your API key.	
+	 */
+	public static function verifyMessageSignature ($secret, $body = null, $signature = null) {
+
+		// Compute hash of message using shared secret:
+		$body = is_null($body) ? file_get_contents('php://input') : $body;
+		$hash = base64_encode(hash_hmac('sha256', $body, $secret, true));
+
+		// Compare hash to the signature:
+		$signature = is_null($signature) ? $_SERVER['HTTP_X_ACUITY_SIGNATURE'] : $signature;
+		if ($hash !== $signature) {
+			throw new Exception('This message was forged!');
+		}
+	}
 }
