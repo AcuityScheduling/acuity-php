@@ -1,12 +1,12 @@
 <?php
 
 require_once(__DIR__.'/../../src/AcuityOAuth.php');
+require_once('../utils.php');
 
 // Config:
-$config = json_decode(file_get_contents(__DIR__.DIRECTORY_SEPARATOR.'config.json'), true);
+$config = loadConfig(__DIR__.DIRECTORY_SEPARATOR.'config.json');
 $secret = $config['apiKey'];
-$path = $_SERVER['PATH_INFO'] ? $_SERVER['PATH_INFO'] : '/';
-$method = $_SERVER['REQUEST_METHOD'];
+list($method, $path) = getRouteInfo();
 
 // App:
 if ($method === 'GET' && $path === '/') {
@@ -21,6 +21,6 @@ if ($method === 'POST' && $path === '/webhook') {
     trigger_error($e->getMessage(), E_USER_WARNING);
   }
 } else {
-  http_response_code(404);
+	handle404();
 }
 

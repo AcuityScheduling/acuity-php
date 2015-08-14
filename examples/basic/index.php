@@ -1,11 +1,12 @@
 <?php
 
 require_once(__DIR__.'/../../src/AcuityAPI.php');
+require_once('../utils.php');
+
 
 // Config:
-$config = json_decode(file_get_contents(__DIR__.DIRECTORY_SEPARATOR.'config.json'), true);
-$path = $_SERVER['PATH_INFO'] ? $_SERVER['PATH_INFO'] : '/';
-$method = $_SERVER['REQUEST_METHOD'];
+$config = loadConfig(__DIR__.DIRECTORY_SEPARATOR.'config.json');
+list($method, $path) = getRouteInfo();
 
 
 // Instantiate API class:
@@ -35,4 +36,6 @@ if ($method === 'GET' && $path === '/') {
 	echo '<pre>';
 	echo print_r($response, true);
 	echo '</pre>';
+} else {
+	handle404();
 }

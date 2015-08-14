@@ -1,13 +1,12 @@
 <?php
 
 require_once(__DIR__.'/../../src/AcuityOAuth.php');
+require_once('../utils.php');
+
 
 // Config:
-$config = json_decode(file_get_contents(__DIR__.DIRECTORY_SEPARATOR.'config.json'), true);
-$path = $_SERVER['PATH_INFO'] ? $_SERVER['PATH_INFO'] : '/';
-$method = $_SERVER['REQUEST_METHOD'];
-ini_set('session.save_path', '');
-session_start();
+$config = loadConfig(__DIR__.DIRECTORY_SEPARATOR.'config.json');
+list($method, $path) = getRouteInfo();
 
 
 // Instantiate OAuth API class.  Once we have connected to Acuity,
@@ -61,5 +60,7 @@ if ($method === 'GET' && $path === '/oauth2') {
 	echo '</pre>';
 
 	echo '<a href="/">Back Home</a>';
+} else {
+	handle404();
 }
 
