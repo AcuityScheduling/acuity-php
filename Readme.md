@@ -9,7 +9,7 @@
 Create a config file with your <a href="https://secure.acuityscheduling.com/app.php?key=api&action=settings" target="_blank">API credentials</a> to get started.
 Start the example server by doing `php -S localhost:8000 -t examples/basic` and navigate to <a href="http://127.0.0.1:8000/" target="_blank">127.0.0.1:8000</a>
 
-#### Sample `examples/basic/config.json`
+##### Sample `examples/basic/config.json`
 ```json
 {
 	"userId": 1,
@@ -24,7 +24,7 @@ Start the example server by doing `php -S localhost:8000 -t examples/basic` and 
 Create a config file with your OAuth2 credentials to get started.
 Start the example server by doing `php -S localhost:8000 -t examples/oauth2` and navigate to <a href="http://127.0.0.1:8000/" target="_blank">127.0.0.1:8000</a>
 
-#### Sample `examples/oauth2/config.json`
+##### Sample `examples/oauth2/config.json`
 ```json
 {
 	"clientId": "N4HgVZbjHVp3HAkR",
@@ -40,7 +40,7 @@ Start the example server by doing `php -S localhost:8000 -t examples/oauth2` and
 Create a config file with your <a href="https://secure.acuityscheduling.com/app.php?key=api&action=settings" target="_blank">API key</a> credentials to get started.
 Start the example server by doing `php -S localhost:8000 -t examples/custom-sidebar` and navigate to <a href="http://127.0.0.1:8000/" target="_blank">127.0.0.1:8000</a>
 
-#### Sample `examples/custom-sidebar/config.json`
+##### Sample `examples/custom-sidebar/config.json`
 ```json
 {
 	"apiKey": "abc123"
@@ -54,7 +54,7 @@ Start the example server by doing `php -S localhost:8000 -t examples/custom-side
 Create a config file with your <a href="https://secure.acuityscheduling.com/app.php?key=api&action=settings" target="_blank">API key</a> credentials to get started.
 Start the example server by doing `php -S localhost:8000 -t examples/webhooks` and navigate to <a href="http://127.0.0.1:8000/" target="_blank">127.0.0.1:8000</a>
 
-#### Sample `examples/webhook/config.json`
+##### Sample `examples/webhook/config.json`
 ```json
 {
 	"apiKey": "abc123"
