@@ -4,7 +4,7 @@
 
 ### Basic API Access
 
-[examples/basic](examples/basic) is a basic API integration fo ra single account.
+[examples/basic](examples/basic) is a basic API integration for a single account.
 
 Create a config file with your <a href="https://secure.acuityscheduling.com/app.php?key=api&action=settings" target="_blank">API credentials</a> to get started.
 Start the example server by doing `php -S localhost:8000 -t examples/basic` and navigate to <a href="http://127.0.0.1:8000/" target="_blank">127.0.0.1:8000</a>
