@@ -19,7 +19,6 @@ class AcuitySchedulingOAuth extends AcuityScheduling {
 
 	public function getAuthorizeUrl($params)
 	{
-		print_r($params);
 		if (!isset($params['scope'])) {
 			trigger_error('Missing `scope` parameter.', E_USER_ERROR);
 		}
