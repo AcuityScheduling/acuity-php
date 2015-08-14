@@ -13,7 +13,7 @@ list($method, $path) = getRouteInfo();
 $acuity = new AcuityAPI([
 	'userId' => $config['userId'],
 	'apiKey' => $config['apiKey'],
-	'base' => $config['base'] // Optional
+	'base'   => $config['base'] // Optional
 ]);
 
 
