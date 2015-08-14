@@ -40,6 +40,16 @@ if ($method === 'GET' && $path === '/') {
 	echo '<pre>';
 	echo print_r($response, true);
 	echo '</pre>';
+
+	$response = $acuity->request('appointments', [
+		'query' => [
+			'max' => 1
+		]
+	]);
+	echo '<h1>GET /api/v1/appointments?max=1</h1>';
+	echo '<pre>';
+	print_r($response);
+	echo '</pre>';
 } else {
 	handle404();
 }

@@ -36,6 +36,7 @@ class AcuityScheduling {
 		], $options);
 		$method = $options['method'];
 		$headers = $options['headers'];
+		$query = $options['query'];
 		$data = $options['data'];
 		$json = $options['json'] === true;
 
@@ -48,6 +49,9 @@ class AcuityScheduling {
 				$headers['Content-Type'] = 'application/x-www-form-urlencoded';
 				$data = is_string($data) ? $data : http_build_query($data);
 			}
+		}
+		if ($query && is_array($query)) {
+			$url .= '?'.http_build_query($query);
 		}
 
 		// Headers:
