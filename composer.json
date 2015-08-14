@@ -1,5 +1,30 @@
 {
-    "require": {
-        "slim/slim": "3.x-dev"
-    }
+	"name": "acuityscheduling/acuityscheduling",
+	"type": "library",
+	"version": "0.0.1",
+	"description": "Acuity Scheduling PHP SDK.",
+	"keywords": [ "acuity", "acuity scheduling", "api", "sdk", "oauth", "oauth2" ],
+	"homepage": "https://github.com/AcuityScheduling/acuity-php",
+	"authors": [
+		{
+			"name": "Acuity Scheduling, Inc.",
+			"email": "developers@acuityscheduling.com",
+			"homepage": "https://developers.acuityscheduling.com/",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"email": "developers@acuityscheduling.com",
+		"issues": "https://github.com/AcuityScheduling/acuity-php/issues"
+	},
+	"autoload": {
+		"psr-4": {
+			"AcuityScheduling": "src/",
+			"AcuitySchedulingOAuth": "src/"
+		}
+	},
+	"require": {
+		"php": ">=5.0.0",
+		"ext-curl": "*"
+	}
 }
