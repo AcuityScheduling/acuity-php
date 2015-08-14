@@ -1,5 +1,39 @@
 # Acuity PHP Tool Kit
 
+## Installation
+
+This package can be installed with composer, but until we're published you can configure composer in your application like this:
+
+##### `composer.json`
+```json
+{
+  "repositories": [
+    {
+      "type": "git",
+      "url": "git@github.com:AcuityScheduling/acuity-php.git"
+    }
+  ],
+  "require": {
+    "acuityscheduling/acuityscheduling": "dev-master"
+  }
+}
+```
+
+Then do `composer update` and include the `vendor/autoload.php` in your app.
+
+```php
+<?php
+require_once('vendor/autoload.php');
+
+// Acuity OAuth Connection
+$acuity = new AcuitySchedulingOAuth([
+  'accessToken' => $accessToken,
+  'clientId' => CLIENT_ID,
+  'clientSecret' => CLIENT_SECRET,
+  'redirectUri' => REDIRECT_URI
+]);
+```
+
 ## Examples
 
 ### Basic API Access
