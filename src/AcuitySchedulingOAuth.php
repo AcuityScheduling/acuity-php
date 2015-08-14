@@ -1,8 +1,8 @@
 <?php
 
-require_once(__DIR__.DIRECTORY_SEPARATOR.'AcuityAPI.php');
+require_once(__DIR__.DIRECTORY_SEPARATOR.'AcuityScheduling.php');
 
-class AcuityOAuth extends AcuityAPI {
+class AcuitySchedulingOAuth extends AcuityScheduling {
 
 	protected $accessToken;
 	protected $clientId;

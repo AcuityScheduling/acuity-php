@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__.'/../../src/AcuityOAuth.php');
+require_once(__DIR__.'/../../src/AcuityScheduling.php');
 require_once('../utils.php');
 
 
@@ -17,7 +17,7 @@ if ($method === 'GET' && $path === '/') {
 if ($method === 'POST' && $path === '/custom-sidebar') {
 	// Handle custom-sidebar callback after verifying signature:
   try {
-		AcuityAPI::verifyMessageSignature($secret);
+		AcuityScheduling::verifyMessageSignature($secret);
 		echo '<h4>Callback Example:</h4>';
 		echo '<pre>';
 		print_r($_POST);

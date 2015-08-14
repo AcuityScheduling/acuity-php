@@ -1,6 +1,6 @@
 <?php
 
-class AcuityAPI {
+class AcuityScheduling {
 
 	protected $base = 'https://acuityscheduling.com';
 	protected $userId = null;

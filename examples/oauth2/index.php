@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__.'/../../src/AcuityOAuth.php');
+require_once(__DIR__.'/../../src/AcuitySchedulingOAuth.php'); // OAuth Version
 require_once('../utils.php');
 
 
@@ -11,7 +11,7 @@ list($method, $path) = getRouteInfo();
 
 // Instantiate OAuth API class.  Once we have connected to Acuity,
 // we'll store the accessToken in the session for future page visits.
-$acuity = new AcuityOAuth([
+$acuity = new AcuitySchedulingOAuth([
 	'accessToken'  => $_SESSION['accessToken'],
 	'clientId'     => $config['clientId'],
 	'clientSecret' => $config['clientSecret'],

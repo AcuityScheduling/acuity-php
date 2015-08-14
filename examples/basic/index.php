@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__.'/../../src/AcuityAPI.php');
+require_once(__DIR__.'/../../src/AcuityScheduling.php');
 require_once('../utils.php');
 
 
@@ -10,7 +10,7 @@ list($method, $path) = getRouteInfo();
 
 
 // Instantiate API class:
-$acuity = new AcuityAPI([
+$acuity = new AcuityScheduling([
 	'userId' => $config['userId'],
 	'apiKey' => $config['apiKey'],
 	'base'   => $config['base'] // Optional
