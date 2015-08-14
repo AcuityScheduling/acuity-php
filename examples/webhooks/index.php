@@ -10,16 +10,16 @@ list($method, $path) = getRouteInfo();
 
 // App:
 if ($method === 'GET' && $path === '/') {
-  include 'index.html';
+	include 'index.html';
 } else
 if ($method === 'POST' && $path === '/webhook') {
 	// Handle webhook after verifying signature:
-  try {
+	try {
 		AcuityAPI::verifyMessageSignature($secret);
-    error_log("The message is authentic:\n".json_encode($_POST, JSON_PRETTY_PRINT));
-  } catch (Exception $e) {
-    trigger_error($e->getMessage(), E_USER_WARNING);
-  }
+		error_log("The message is authentic:\n".json_encode($_POST, JSON_PRETTY_PRINT));
+	} catch (Exception $e) {
+		trigger_error($e->getMessage(), E_USER_WARNING);
+	}
 } else {
 	handle404();
 }
