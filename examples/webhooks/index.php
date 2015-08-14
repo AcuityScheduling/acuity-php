@@ -1,7 +1,8 @@
 <?php
 
 // Config:
-$secret = 'afa7ab1cee139971061804fa02d13aca';
+$config = json_decode(file_get_contents(__DIR__.DIRECTORY_SEPARATOR.'config.json'), true);
+$secret = $config['apiKey'];
 $path = $_SERVER['PATH_INFO'] ? $_SERVER['PATH_INFO'] : '/';
 $method = $_SERVER['REQUEST_METHOD'];
 
