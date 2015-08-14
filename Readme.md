@@ -2,7 +2,7 @@
 
 ## Examples
 
-### Basic
+### Basic API Access
 
 [examples/basic](examples/basic) is a basic API integration fo ra single account.
 
@@ -17,11 +17,11 @@ Start the example server by doing `php -S localhost:8000 -t examples/basic` and 
 }
 ```
 
-### OAuth2
+### OAuth2 API Access
 
 [examples/oauth2](examples/oauth2) is an OAuth2 API integration.  Use this to connect multiple accounts.
 
-Create a config file with your OAuth2 credentials to get started.
+Create a config file with your OAuth2 credentials to get started.  If you don't have OAuth2 credentials, you can please fill out this <a href="https://acuityscheduling.com/oauth2/register" target="_blank">registration form</a>.
 Start the example server by doing `php -S localhost:8000 -t examples/oauth2` and navigate to <a href="http://127.0.0.1:8000/" target="_blank">127.0.0.1:8000</a>
 
 ##### Sample `examples/oauth2/config.json`
