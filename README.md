@@ -4,31 +4,20 @@ Welcome to the Acuity Scheduling PHP SDK.  This SDK provides examples and a stan
 
 ## Installation
 
-This package can be installed with composer or added to your application manually.  To use composer, first add us as a dependency in your project:
+This package can be installed with composer or added to your application manually.  To install with composer, first execute in a shell:
 
-##### `composer.json`
-```json
-{
-	"require": {
-		"acuityscheduling/acuityscheduling": "0.0.*"
-	}
-}
+```sh
+$ composer require acuityscheduling/acuityscheduling
 ```
 
-Then do `composer update` and include the `vendor/autoload.php` in your app.
+Then include the `vendor/autoload.php` in your app.
 
 ```php
 <?php
 require_once('vendor/autoload.php');
-
-// Acuity OAuth Connection
-$acuity = new AcuitySchedulingOAuth([
-  'accessToken' => $accessToken,
-  'clientId' => CLIENT_ID,
-  'clientSecret' => CLIENT_SECRET,
-  'redirectUri' => REDIRECT_URI
-]);
 ```
+
+If you're installing manually, simply include the `AcuityScheduling.php` file in your app.
 
 ## Examples
 
