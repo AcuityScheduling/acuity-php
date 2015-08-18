@@ -1,8 +1,8 @@
 {
 	"name": "acuityscheduling/acuityscheduling",
 	"type": "library",
-	"version": "0.0.1",
-	"description": "Acuity Scheduling PHP SDK.",
+	"description": "Acuity Scheduling PHP SDK.  Examples and a standard library for Acuity Scheduling integration.",
+	"license": "MIT",
 	"keywords": [ "acuity", "acuity scheduling", "api", "sdk", "oauth", "oauth2" ],
 	"homepage": "https://github.com/AcuityScheduling/acuity-php",
 	"authors": [
@@ -15,6 +15,7 @@
 	],
 	"support": {
 		"email": "developers@acuityscheduling.com",
+		"source": "https://github.com/AcuityScheduling/acuity-php",
 		"issues": "https://github.com/AcuityScheduling/acuity-php/issues"
 	},
 	"autoload": {
