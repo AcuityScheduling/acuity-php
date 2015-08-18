@@ -63,6 +63,20 @@ if ($method === 'GET' && $path === '/oauth2') {
 	print_r($response);
 	echo '</pre>';
 
+
+	// Get appointments:
+	$response = $acuity->request('appointments', [
+		'query' => [
+			'max' => 1
+		]
+	]);
+	echo '<h1>GET /api/v1/appointments?max=1</h1>';
+	echo '<pre>';
+	print_r($response);
+	echo '</pre>';
+
+
+	// Home:
 	echo '<a href="/">Back Home</a>';
 } else {
 	handle404();
