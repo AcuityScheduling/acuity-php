@@ -10,7 +10,7 @@ This package can be installed with composer or added to your application manuall
 ```json
 {
 	"require": {
-  	"acuityscheduling/acuityscheduling": "0.0.*"
+		"acuityscheduling/acuityscheduling": "0.0.*"
 	}
 }
 ```
