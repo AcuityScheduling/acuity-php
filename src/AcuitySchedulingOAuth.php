@@ -23,12 +23,18 @@ class AcuitySchedulingOAuth extends AcuityScheduling {
 			trigger_error('Missing `scope` parameter.', E_USER_ERROR);
 		}
 
-		return $this->base.'/oauth2/authorize'.'?'.http_build_query([
+		$query = [
 			'response_type' => 'code',
 			'scope'         => $params['scope'],
 			'client_id'     => $this->clientId,
 			'redirect_uri'  => $this->redirectUri
-		]);
+		];
+
+		if ($params['state']) {
+			$query['state'] = $params['state'];
+		}
+
+		return $this->base.'/oauth2/authorize'.'?'.http_build_query($query);
 	}
 
 	public function authorizeRedirect($params)
