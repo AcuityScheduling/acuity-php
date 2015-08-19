@@ -5,6 +5,7 @@ class AcuityScheduling {
 	protected $base = 'https://acuityscheduling.com';
 	protected $userId = null;
 	protected $apiKey = null;
+	protected $lastStatusCode = null;
 
 	public function __construct($options) {
 		$this->apiKey = $options['apiKey'];
@@ -19,6 +20,12 @@ class AcuityScheduling {
 			'username' => $this->userId,
 			'password' => $this->apiKey
 		]));
+	}
+
+	public function getLastRequestInfo() {
+		return [
+			'status_code' => $this->lastStatusCode
+		];
 	}
 
 	/**
@@ -89,15 +96,12 @@ class AcuityScheduling {
 
 		// Request:
 		$result = curl_exec($ch);
-		$status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+		$this->lastStatusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 		$headerLength = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
 		$body = substr($result, $headerLength);
-		$response = [
-			'status_code' => $status,
-			'body' => $json ? json_decode($body, true) : $body
-		];
+		$body = $json ? json_decode($body, true) : $body;
 
-		return $response;
+		return $body;
 	}
 
 	/**

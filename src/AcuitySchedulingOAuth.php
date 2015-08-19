@@ -52,16 +52,16 @@ class AcuitySchedulingOAuth extends AcuityScheduling {
 			'redirect_uri'  => $this->redirectUri
 		];
 
-		$response = $this->_request($this->base.'/oauth2/token', [
+		$body = $this->_request($this->base.'/oauth2/token', [
 			'data' => $data,
 			'method' => 'POST'
 		]);
-		$body = $response['body'] = json_decode($response['body'], true);
+		$body = json_decode($body, true);
 		if ($body['access_token']) {
 			$this->accessToken = $body['access_token'];
 		}
 
-		return $response;
+		return $body;
 	}
 
 	public function isConnected() {
