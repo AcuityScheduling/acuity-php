@@ -120,18 +120,38 @@ class AcuityScheduling {
 		}
 	}
 
-	public static function getEmbedCode($owner, $options)
+	/**
+	 * Generate embed code for $owner.
+	 *
+	 *
+	 * @param $owner  The owner's id.
+	 * @param $options  Additional options.
+	 *	- width  Iframe width
+	 *	- height  Iframe height
+	 *	- query  Query string arguments
+	 */
+	public static function getEmbedCode($owner, $options = [])
 	{
-		$owner = htmlspecialchars($owner);
-		$defaults = [
+		$query = [
+			'owner' => $owner
+		];
+		$options = array_merge([
 			'height' => '800',
 			'width' => '100%'
-		];
+		], $options);
+
+		// Encode options:
 		foreach ($options as $key => $option) {
-			$defaults[$key] = htmlspecialchars($option);
+			if ($key === 'query') {
+				$query = array_merge($query, $option);
+			} else {
+				$options[$key] = htmlspecialchars($option);
+			}
 		}
+		$query = http_build_query($query);
+
 		return
-			"<iframe src=\"https://app.acuityscheduling.com/schedule.php?owner={$owner}\" width=\"{$defaults['width']}\" height=\"{$defaults['height']}\" frameBorder=\"0\"></iframe>".
+			"<iframe src=\"https://app.acuityscheduling.com/schedule.php?{$query}\" width=\"{$options['width']}\" height=\"{$options['height']}\" frameBorder=\"0\"></iframe>".
 			'<script src="https://d3gxy7nm8y4yjr.cloudfront.net/js/embed.js" type="text/javascript"></script>';
 	}
 }
