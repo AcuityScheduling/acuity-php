@@ -23,12 +23,12 @@ class AcuitySchedulingOAuth extends AcuityScheduling {
 			trigger_error('Missing `scope` parameter.', E_USER_ERROR);
 		}
 
-		$query = [
+		$query = array(
 			'response_type' => 'code',
 			'scope'         => $params['scope'],
 			'client_id'     => $this->clientId,
 			'redirect_uri'  => $this->redirectUri
-		];
+		);
 
 		if ($params['state']) {
 			$query['state'] = $params['state'];
@@ -44,18 +44,18 @@ class AcuitySchedulingOAuth extends AcuityScheduling {
 
 	public function requestAccessToken($code)
 	{
-		$data = [
+		$data = array(
 			'grant_type'    => 'authorization_code',
 			'code'          => $code,
 			'client_id'     => $this->clientId,
 			'client_secret' => $this->clientSecret,
 			'redirect_uri'  => $this->redirectUri
-		];
+		);
 
-		$body = $this->_request($this->base.'/oauth2/token', [
+		$body = $this->_request($this->base.'/oauth2/token', array(
 			'data' => $data,
 			'method' => 'POST'
-		]);
+		));
 		$body = json_decode($body, true);
 		if ($body['access_token']) {
 			$this->accessToken = $body['access_token'];
@@ -68,14 +68,14 @@ class AcuitySchedulingOAuth extends AcuityScheduling {
 		return $this->accessToken ? true : false;
 	}
 
-	public function request($path, $options = []) {
+	public function request($path, $options = array()) {
 		$url = $this->base.'/api/v1/'.$path;
-		return $this->_request($url, array_merge($options, [
+		return $this->_request($url, array_merge($options, array(
 			'json' => true,
-			'headers' => [
+			'headers' => array(
 				'Authorization' => 'Bearer '.$this->accessToken
-			]
-		]));
+			)
+		)));
 	}
 
 }

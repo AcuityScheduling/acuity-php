@@ -13,19 +13,19 @@ class AcuityScheduling {
 		$this->base		= $options['base'] ? $options['base'] : $this->base;
 	}
 
-	public function request($path, $options = []) {
+	public function request($path, $options = array()) {
 		$url = $this->base.'/api/v1/'.$path;
-		return $this->_request($url, array_merge($options, [
+		return $this->_request($url, array_merge($options, array(
 			'json' => true,
 			'username' => $this->userId,
 			'password' => $this->apiKey
-		]));
+		)));
 	}
 
 	public function getLastRequestInfo() {
-		return [
+		return array(
 			'status_code' => $this->lastStatusCode
-		];
+		);
 	}
 
 	/**
@@ -34,13 +34,13 @@ class AcuityScheduling {
 	protected function _request($url, $options) {
 
 		// Set defaults:
-		$options = array_merge([
+		$options = array_merge(array(
 			'method'   => 'GET',
 			'username' => null,
 			'password' => null,
 			'json'     => false,
-			'headers'  => []
-		], $options);
+			'headers'  => array()
+		), $options);
 		$method = $options['method'];
 		$headers = $options['headers'];
 		$query = $options['query'];
@@ -62,7 +62,7 @@ class AcuityScheduling {
 		}
 
 		// Headers:
-		$header = [];
+		$header = array();
 		foreach ($headers as $key => $value) {
 			$header[] = "{$key}: {$value}";
 		}
@@ -130,15 +130,15 @@ class AcuityScheduling {
 	 *	- height  Iframe height
 	 *	- query  Query string arguments
 	 */
-	public static function getEmbedCode($owner, $options = [])
+	public static function getEmbedCode($owner, $options = array())
 	{
-		$query = [
+		$query = array(
 			'owner' => $owner
-		];
-		$options = array_merge([
+		);
+		$options = array_merge(array(
 			'height' => '800',
 			'width' => '100%'
-		], $options);
+		), $options);
 
 		// Encode options:
 		foreach ($options as $key => $option) {

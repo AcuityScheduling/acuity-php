@@ -11,13 +11,13 @@ list($method, $path) = getRouteInfo();
 
 // Instantiate OAuth API class.  Once we have connected to Acuity,
 // we'll store the accessToken in the session for future page visits.
-$acuity = new AcuitySchedulingOAuth([
+$acuity = new AcuitySchedulingOAuth(array(
 	'accessToken'  => $_SESSION['accessToken'],
 	'clientId'     => $config['clientId'],
 	'clientSecret' => $config['clientSecret'],
 	'redirectUri'  => $config['redirectUri'],
 	'base'         => $config['base'] // Optional
-]);
+));
 
 
 // Example app:
@@ -37,7 +37,7 @@ if ($method === 'GET' && $path === '/authorize') {
 
 	// Redirect the user to the Acuity authorization endpoint.  You must
 	// choose a scope to work with.
-	$acuity->authorizeRedirect(['scope' => 'api-v1']);
+	$acuity->authorizeRedirect(array('scope' => 'api-v1'));
 
 } else
 if ($method === 'GET' && $path === '/oauth2') {
@@ -65,11 +65,11 @@ if ($method === 'GET' && $path === '/oauth2') {
 
 
 	// Get appointments:
-	$response = $acuity->request('appointments', [
-		'query' => [
+	$response = $acuity->request('appointments', array(
+		'query' => array(
 			'max' => 1
-		]
-	]);
+		)
+	));
 	echo '<h1>GET /api/v1/appointments?max=1</h1>';
 	echo '<pre>';
 	print_r($response);

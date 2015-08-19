@@ -19,10 +19,10 @@ function handle404 () {
 }
 
 function getRouteInfo () {
-	return [
+	return array(
 		$_SERVER['REQUEST_METHOD'],
 		$_SERVER['PATH_INFO'] ? $_SERVER['PATH_INFO'] : '/'
-	];
+	);
 }
 
 // Start a session:
