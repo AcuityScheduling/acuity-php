@@ -103,7 +103,7 @@ class AcuityScheduling {
 	/**
 	 * Verify a message signature using your API key.	
 	 */
-	public static function verifyMessageSignature ($secret, $body = null, $signature = null) {
+	public static function verifyMessageSignature($secret, $body = null, $signature = null) {
 
 		// Compute hash of message using shared secret:
 		$body = is_null($body) ? file_get_contents('php://input') : $body;
@@ -114,5 +114,20 @@ class AcuityScheduling {
 		if ($hash !== $signature) {
 			throw new Exception('This message was forged!');
 		}
+	}
+
+	public static function getEmbedCode($owner, $options)
+	{
+		$owner = htmlspecialchars($owner);
+		$defaults = [
+			'height' => '800',
+			'width' => '100%'
+		];
+		foreach ($options as $key => $option) {
+			$defaults[$key] = htmlspecialchars($option);
+		}
+		return
+			"<iframe src=\"https://app.acuityscheduling.com/schedule.php?owner={$owner}\" width=\"{$defaults['width']}\" height=\"{$defaults['height']}\" frameBorder=\"0\"></iframe>".
+			'<script src="https://d3gxy7nm8y4yjr.cloudfront.net/js/embed.js" type="text/javascript"></script>';
 	}
 }
