@@ -39,7 +39,9 @@ class AcuityScheduling {
 			'username' => null,
 			'password' => null,
 			'json'     => false,
-			'headers'  => array()
+			'headers'  => array(),
+			'data'     => null,
+			'query'    => null
 		), $options);
 		$method = $options['method'];
 		$headers = $options['headers'];
@@ -105,7 +107,7 @@ class AcuityScheduling {
 	}
 
 	/**
-	 * Verify a message signature using your API key.	
+	 * Verify a message signature using your API key.
 	 */
 	public static function verifyMessageSignature($secret, $body = null, $signature = null) {
 
