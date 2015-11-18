@@ -46,14 +46,23 @@ if ($method === 'GET' && $path === '/oauth2') {
 	// somewhere.  You'll need to pass it to the AcuityOAuth constructor
 	// to make calls later on.
 	$tokenResponse = $acuity->requestAccessToken($_GET['code']);
-	$accessToken = $tokenResponse['access_token'];
-	$_SESSION['accessToken'] = $accessToken;
+	if ($accessToken = $tokenResponse['access_token']) {
+		$_SESSION['accessToken'] = $accessToken;
+	}
 
 
+	// Token response:
 	echo '<h1>Token Response:</h1>';
 	echo '<pre>';
 	print_r($tokenResponse);
 	echo '</pre>';
+
+
+	// Current Access Token:
+	if ($_SESSION['accessToken']) {
+		echo '<h1>Current Access Token:</h1>';
+		print_r($_SESSION['accessToken']);
+	}
 
 
 	// Make a sample request:
