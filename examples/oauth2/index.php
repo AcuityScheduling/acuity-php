@@ -43,8 +43,8 @@ if ($method === 'GET' && $path === '/authorize') {
 if ($method === 'GET' && $path === '/oauth2') {
 
 	// Exchange the authorizatoin code for an access token and store it
-	// somewhere.  You'll need to pass it to the AcuityOAuth constructor
-	// to make calls later on.
+	// somewhere.  You'll need to pass it to the AcuitySchedulingOAuth
+	// constructor to make calls later on.
 	$tokenResponse = $acuity->requestAccessToken($_GET['code']);
 	if ($accessToken = $tokenResponse['access_token']) {
 		$_SESSION['accessToken'] = $accessToken;
