@@ -1,6 +1,6 @@
 # Acuity Scheduling PHP Tool Kit
 
-Welcome to the Acuity Scheduling PHP SDK.  This SDK provides examples and a standard library for integrating with Acuity Scheduling using PHP.  You can learn more about developing for Acuity Scheduling at [developers.acuityscheduling.com](http://developers.acuityscheduling.com/).
+Welcome to the Acuity Scheduling PHP SDK.  This SDK provides examples and a standard library for integrating with [Acuity Scheduling](https://acuityscheduling.com/) using PHP.  You can learn more about developing for Acuity Scheduling at [developers.acuityscheduling.com](https://developers.acuityscheduling.com/).
 
 ## Installation
 
