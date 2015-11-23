@@ -75,7 +75,7 @@ class AcuityScheduling {
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt($ch, CURLOPT_USERAGENT, 'AcuityScheduling-php ');
+		curl_setopt($ch, CURLOPT_USERAGENT, 'AcuityScheduling-php');
 		if ($options['username'] && $options['password']) {
 			curl_setopt($ch, CURLOPT_USERPWD, "{$options['username']}:{$options['password']}");
 		}
