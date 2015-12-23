@@ -3,7 +3,7 @@
 	"type": "library",
 	"description": "Acuity Scheduling PHP SDK.  Examples and a standard library for Acuity Scheduling integration.",
 	"license": "MIT",
-	"keywords": [ "acuity", "acuity scheduling", "api", "sdk", "oauth", "oauth2" ],
+	"keywords": [ "acuity", "acuity scheduling", "scheduling api", "api", "sdk", "oauth", "oauth2" ],
 	"homepage": "https://github.com/AcuityScheduling/acuity-php",
 	"authors": [
 		{
