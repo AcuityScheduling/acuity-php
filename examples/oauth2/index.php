@@ -5,7 +5,7 @@ require_once('../utils.php');
 
 
 // Config:
-$config = loadConfig(__DIR__.DIRECTORY_SEPARATOR.'config.json');
+$config = loadConfig();
 list($method, $path) = getRouteInfo();
 
 

@@ -5,7 +5,7 @@ require_once('../utils.php');
 
 
 // Config:
-$config = loadConfig(__DIR__.DIRECTORY_SEPARATOR.'config.json');
+$config = loadConfig();
 $secret = $config['apiKey'];
 list($method, $path) = getRouteInfo();
 

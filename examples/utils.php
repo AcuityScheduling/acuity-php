@@ -1,6 +1,8 @@
 <?php
 
 function loadConfig ($file) {
+
+	$file = $file ? $file : __DIR__.DIRECTORY_SEPARATOR.'config.json';
 	if (!file_exists($file)) {
 		throw new Exception("Please add the config file {$file}");
 	}
