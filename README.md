@@ -1,6 +1,6 @@
-# Acuity Scheduling PHP Tool Kit
+# Acuity Scheduling API - PHP Tool Kit
 
-Welcome to the Acuity Scheduling PHP SDK.  This SDK provides examples and a standard library for integrating with [Acuity Scheduling](https://acuityscheduling.com/) using PHP.  You can learn more about developing for Acuity Scheduling at [developers.acuityscheduling.com](https://developers.acuityscheduling.com/).
+Welcome to the Acuity Scheduling PHP SDK.  This SDK provides examples and a standard library for integrating with the [Acuity Scheduling API](https://acuityscheduling.com/) using PHP.  You can learn more about developing for Acuity Scheduling at [developers.acuityscheduling.com](https://developers.acuityscheduling.com/).
 
 ## Installation
 
@@ -34,7 +34,7 @@ You'll find several examples of different Acuity integrations in the [examples/]
 Create a config file with your <a href="https://secure.acuityscheduling.com/app.php?key=api&action=settings" target="_blank">API credentials</a> to get started.
 Start the example server by doing `php -S localhost:8000 -t examples/basic` and navigate to <a href="http://127.0.0.1:8000/" target="_blank">127.0.0.1:8000</a>
 
-##### Sample `examples/basic/config.json`
+##### Sample `examples/config.json`
 ```json
 {
 	"userId": 1,
@@ -49,7 +49,7 @@ Start the example server by doing `php -S localhost:8000 -t examples/basic` and 
 Create a config file with your OAuth2 credentials to get started.  If you don't have OAuth2 credentials, please fill out this <a href="https://acuityscheduling.com/oauth2/register" target="_blank">registration form</a>.
 Start the example server by doing `php -S localhost:8000 -t examples/oauth2` and navigate to <a href="http://127.0.0.1:8000/" target="_blank">127.0.0.1:8000</a>
 
-##### Sample `examples/oauth2/config.json`
+##### Sample `examples/config.json`
 ```json
 {
 	"clientId": "N4HgVZbjHVp3HAkR",
@@ -65,7 +65,7 @@ Start the example server by doing `php -S localhost:8000 -t examples/oauth2` and
 Create a config file with your <a href="https://secure.acuityscheduling.com/app.php?key=api&action=settings" target="_blank">API key</a> credentials to get started.
 Start the example server by doing `php -S localhost:8000 -t examples/webhooks` and navigate to <a href="http://127.0.0.1:8000/" target="_blank">127.0.0.1:8000</a>
 
-##### Sample `examples/webhook/config.json`
+##### Sample `examples/config.json`
 ```json
 {
 	"apiKey": "abc123"
@@ -79,7 +79,7 @@ Start the example server by doing `php -S localhost:8000 -t examples/webhooks` a
 Create a config file with your <a href="https://secure.acuityscheduling.com/app.php?key=api&action=settings" target="_blank">API key</a> credentials to get started.
 Start the example server by doing `php -S localhost:8000 -t examples/custom-sidebar` and navigate to <a href="http://127.0.0.1:8000/" target="_blank">127.0.0.1:8000</a>
 
-##### Sample `examples/custom-sidebar/config.json`
+##### Sample `examples/config.json`
 ```json
 {
 	"apiKey": "abc123"
