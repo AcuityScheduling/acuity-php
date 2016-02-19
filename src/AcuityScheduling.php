@@ -14,7 +14,8 @@ class AcuityScheduling {
 	}
 
 	public function request($path, $options = array()) {
-		$url = $this->base.'/api/v1/'.$path;
+		$path = is_string($path) ? $path : '';
+		$url = $this->base.'/api/v1'.($path[0] == '/' ? '' : '/').$path;
 		return $this->_request($url, array_merge($options, array(
 			'json' => true,
 			'username' => $this->userId,

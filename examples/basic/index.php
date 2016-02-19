@@ -21,13 +21,13 @@ $acuity = new AcuityScheduling(array(
 if ($method === 'GET' && $path === '/') {
 	include('index.html');
 
-	$response = $acuity->request('me');
+	$response = $acuity->request('/me');
 	echo '<h1>GET /api/v1/me:</h1>';
 	echo '<pre>';
 	echo print_r($response, true);
 	echo '</pre>';
 
-	$response = $acuity->request('blocks', array(
+	$response = $acuity->request('/blocks', array(
 		'method' => 'POST',
 		'data' => array(
 			'start' => '2015-12-24',
@@ -41,7 +41,7 @@ if ($method === 'GET' && $path === '/') {
 	echo print_r($response, true);
 	echo '</pre>';
 
-	$response = $acuity->request('appointments', array(
+	$response = $acuity->request('/appointments', array(
 		'query' => array(
 			'max' => 1
 		)
