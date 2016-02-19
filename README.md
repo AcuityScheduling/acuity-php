@@ -35,7 +35,7 @@ $acuity = new AcuityScheduling(array(
   'apiKey' => $apiKey
 ));
 
-$appointments = $acuity->request('appointments');
+$appointments = $acuity->request('/appointments');
 print_r($appointments);
 ```
 
