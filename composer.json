@@ -27,5 +27,8 @@
 	"require": {
 		"php": ">=5.0.0",
 		"ext-curl": "*"
+	},
+	"require-dev": {
+		"xamin/handlebars.php": ">=0.10.0"
 	}
 }
