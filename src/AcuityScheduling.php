@@ -102,8 +102,15 @@ class AcuityScheduling {
 		$result = curl_exec($ch);
 		$this->lastStatusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 		$headerLength = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
-		$body = substr($result, $headerLength);
-		$body = $json ? json_decode($body, true) : $body;
+		if ($result) {
+			$body = substr($result, $headerLength);
+			$body = $json ? json_decode($body, true) : $body;
+		} else {
+			$body = [
+				'message' => curl_error($ch),
+				'error'   => 'curl_error_'.curl_errno($ch)
+			];
+		}
 
 		return $body;
 	}
