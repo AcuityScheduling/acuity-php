@@ -30,7 +30,7 @@ require_once('vendor/autoload.php');
 $userId = null;
 $apiKey = null;
 
-$acuity = new AcuityScheduling(array(
+$acuity = new Acuity\Scheduling(array(
   'userId' => $userId,
   'apiKey' => $apiKey
 ));

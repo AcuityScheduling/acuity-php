@@ -1,8 +1,6 @@
 <?php
 namespace Acuity;
 
-//require_once(__DIR__.DIRECTORY_SEPARATOR.'AcuityScheduling.php');
-
 class OAuth extends Scheduling
 {
 
@@ -22,6 +20,7 @@ class OAuth extends Scheduling
         $this->clientSecret = $options['clientSecret'];
         $this->redirectUri  = $options['redirectUri'];
         $this->base         = isset($options['base']) ? $options['base'] : $this->base;
+        $this->scope        = $options['scope'];
     }
 
     public function getAuthorizeUrl($params = [])
