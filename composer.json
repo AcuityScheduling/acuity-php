@@ -19,9 +19,9 @@
 		"issues": "https://github.com/AcuityScheduling/acuity-php/issues"
 	},
 	"autoload": {
+		"classmap": ["src/"],
 		"psr-0": {
-			"AcuityScheduling": "src/",
-			"AcuitySchedulingOAuth": "src/"
+			"Acuity": "src/"
 		}
 	},
 	"require": {
@@ -29,6 +29,11 @@
 		"ext-curl": "*"
 	},
 	"require-dev": {
-		"xamin/handlebars.php": ">=0.10.0"
+		"xamin/handlebars.php": ">=0.10.0",
+    "squizlabs/php_codesniffer": "2.*"
+	},
+	"scripts": {
+		"sniff" : "vendor/bin/phpcs --standard=PSR2 --extensions=php src tests",
+		"fix": "vendor/bin/phpcbf --standard=PSR2 --extensions=php src tests"
 	}
 }
