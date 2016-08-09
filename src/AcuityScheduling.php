@@ -103,7 +103,7 @@ class Scheduling
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
                 // Set additional options for DELETE and PUT
             default:
-                throw new Exception("Invalid request method ({$method})");
+                throw new \Exception("Invalid request method ({$method})");
         }
 
         // Request:
@@ -136,7 +136,7 @@ class Scheduling
         // Compare hash to the signature:
         $signature = is_null($signature) ? $_SERVER['HTTP_X_ACUITY_SIGNATURE'] : $signature;
         if ($hash !== $signature) {
-            throw new Exception('This message was forged!');
+            throw new \Exception('This message was forged!');
         }
     }
 
@@ -153,7 +153,8 @@ class Scheduling
     public static function getEmbedCode($owner, $options = array())
     {
         $query = array(
-            'owner' => $owner
+            'owner' => $owner,
+            'calendarID' => ''
         );
         $options = array_merge(array(
             'height' => '800',
