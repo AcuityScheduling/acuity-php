@@ -153,8 +153,7 @@ class Scheduling
     public static function getEmbedCode($owner, $options = array())
     {
         $query = array(
-            'owner' => $owner,
-            'calendarID' => ''
+            'owner' => $owner
         );
         $options = array_merge(array(
             'height' => '800',
