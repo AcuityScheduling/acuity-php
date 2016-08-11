@@ -1,7 +1,7 @@
 <?php
 namespace Acuity;
 
-class OAuth extends Scheduling
+class SchedulingOAuth extends Scheduling
 {
 
     protected $accessToken;
