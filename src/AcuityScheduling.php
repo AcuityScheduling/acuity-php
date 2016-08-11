@@ -27,7 +27,7 @@ class Scheduling
         )));
     }
 
-    public function getLastRequestInfo()
+    public function getLastRequestStatusCode()
     {
         return array(
             'status_code' => $this->lastStatusCode
