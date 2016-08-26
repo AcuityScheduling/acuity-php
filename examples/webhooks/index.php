@@ -15,7 +15,7 @@ if ($method === 'GET' && $path === '/') {
 if ($method === 'POST' && $path === '/webhook') {
 	// Handle webhook after verifying signature:
 	try {
-		AcuityScheduling::verifyMessageSignature($secret);
+		\Acuity\Scheduling::verifyMessageSignature($secret);
 		error_log("The message is authentic:\n".json_encode($_POST, JSON_PRETTY_PRINT));
 	} catch (Exception $e) {
 		trigger_error($e->getMessage(), E_USER_WARNING);

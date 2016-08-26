@@ -10,7 +10,7 @@ list($method, $path) = getRouteInfo();
 
 
 // Instantiate API class:
-$acuity = new AcuityScheduling(array(
+$acuity = new \Acuity\Scheduling(array(
 	'userId' => $config['userId'],
 	'apiKey' => $config['apiKey'],
 	'base'   => $config['base'] // Optional

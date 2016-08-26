@@ -7,7 +7,7 @@ require_once('../utils.php');
 $config = loadConfig();
 
 // Instantiate API class:
-$acuity = new AcuityScheduling(array(
+$acuity = new \Acuity\Scheduling(array(
 	'userId' => $config['userId'],
 	'apiKey' => $config['apiKey'],
 	'base'   => $config['base'] // Optional
@@ -47,7 +47,12 @@ if ($method === 'POST') {
 
 		// Time to select a date:
 		$month = strftime('%Y-%m');
-		$dates = $acuity->request("/availability/dates?month=$month&appointmentTypeID={$_SESSION['appointmentType']['id']}");
+		$dates = $acuity->request("/availability/dates", array(
+																'query' => array(
+																		'month' => $month,
+																		'appointmentTypeID' => $_SESSION['appointmentType']['id']
+																)
+															));
 
 	} elseif ($_POST['date']) {
 
