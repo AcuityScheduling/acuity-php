@@ -92,8 +92,10 @@ class AcuityScheduling {
 		case 'PUT':
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+			break;
 		case 'DELETE':
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
+			break;
 		default:
 			throw new Exception("Invalid request method ({$method})");
 		}
