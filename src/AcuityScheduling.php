@@ -98,10 +98,10 @@ class Scheduling
             case 'PUT':
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-                // Set options for PUT
+                break;
             case 'DELETE':
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
-                // Set additional options for DELETE and PUT
+                break;
             default:
                 throw new \Exception("Invalid request method ({$method})");
         }
