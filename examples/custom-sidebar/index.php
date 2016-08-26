@@ -17,7 +17,7 @@ if ($method === 'GET' && $path === '/') {
 if ($method === 'POST' && $path === '/custom-sidebar') {
 	// Handle custom-sidebar callback after verifying signature:
   try {
-		AcuityScheduling::verifyMessageSignature($secret);
+		\Acuity\Scheduling::verifyMessageSignature($secret);
 		echo '<h4>Callback Example:</h4>';
 		echo '<pre>';
 		print_r($_POST);

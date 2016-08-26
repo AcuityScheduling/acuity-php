@@ -11,7 +11,7 @@ list($method, $path) = getRouteInfo();
 
 // Instantiate OAuth API class.  Once we have connected to Acuity,
 // we'll store the accessToken in the session for future page visits.
-$acuity = new AcuitySchedulingOAuth(array(
+$acuity = new \Acuity\SchedulingOAuth(array(
 	'accessToken'  => $_SESSION['accessToken'],
 	'clientId'     => $config['clientId'],
 	'clientSecret' => $config['clientSecret'],
