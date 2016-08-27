@@ -29,6 +29,6 @@
 		"ext-curl": "*"
 	},
 	"require-dev": {
-		"xamin/handlebars.php": ">=0.10.0",
+		"xamin/handlebars.php": ">=0.10.0"
   }
 }
