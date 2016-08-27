@@ -30,10 +30,5 @@
 	},
 	"require-dev": {
 		"xamin/handlebars.php": ">=0.10.0",
-    "squizlabs/php_codesniffer": "2.*"
-	},
-	"scripts": {
-		"sniff" : "vendor/bin/phpcs --standard=PSR2 --extensions=php src tests",
-		"fix": "vendor/bin/phpcbf --standard=PSR2 --extensions=php src tests"
-	}
+  }
 }
