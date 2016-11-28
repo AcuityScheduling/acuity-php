@@ -1,6 +1,6 @@
 <?php
 
-function loadConfig ($file) {
+function loadConfig ($file = null) {
 
 	$file = $file ? $file : __DIR__.DIRECTORY_SEPARATOR.'config.json';
 	if (!file_exists($file)) {
@@ -23,7 +23,7 @@ function handle404 () {
 function getRouteInfo () {
 	return array(
 		$_SERVER['REQUEST_METHOD'],
-		$_SERVER['PATH_INFO'] ? $_SERVER['PATH_INFO'] : '/'
+		isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'
 	);
 }
 
