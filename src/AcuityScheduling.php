@@ -10,7 +10,7 @@ class AcuityScheduling {
 	public function __construct($options) {
 		$this->apiKey = $options['apiKey'];
 		$this->userId = $options['userId'];
-		$this->base		= isset($options['base']) ? $options['base'] : $this->base;
+		$this->base   = isset($options['base']) ? $options['base'] : $this->base;
 	}
 
 	public function request($path, $options = array()) {
