@@ -44,14 +44,19 @@ class AcuityScheduling {
 			'data'     => null,
 			'query'    => null
 		), $options);
-		$method = $options['method'];
+		$method = strtoupper($options['method']);
 		$headers = $options['headers'];
 		$query = $options['query'];
 		$data = $options['data'];
 		$json = $options['json'] === true;
 
+		// Empty JSON for put request (nice for cancel):
+		if ($json && !$data && ($method === 'PUT')) {
+			$data = [];
+		}
+
 		// Data type:
-		if ($data) {
+		if ($data || is_array($data)) {
 			if ($json) {
 				$headers['Content-Type'] = 'application/json';
 				$data = is_string($data) ? $data : json_encode($data);
