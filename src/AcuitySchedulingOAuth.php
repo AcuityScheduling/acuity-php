@@ -30,7 +30,7 @@ class AcuitySchedulingOAuth extends AcuityScheduling {
 			'redirect_uri'  => $this->redirectUri
 		);
 
-		if ($params['state']) {
+		if (!empty($params['state'])) {
 			$query['state'] = $params['state'];
 		}
 
